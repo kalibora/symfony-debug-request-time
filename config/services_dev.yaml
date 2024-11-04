@@ -1,0 +1,5 @@
+parameters:
+
+services:
+    App\Service\RequestTime\ExtractorInterface:
+        class: App\Service\RequestTime\DebugExtractor

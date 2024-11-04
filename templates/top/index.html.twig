@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Top{% endblock %}
+
+{% block body %}
+<h1>symfony-debug-request-time</h1>
+現在時刻は <code>{{ request_time|date('Y/m/d H:i:s') }}</code> です。
+{% endblock %}

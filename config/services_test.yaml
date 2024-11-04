@@ -1,0 +1,8 @@
+parameters:
+
+services:
+    _defaults:
+        public: true
+
+    App\Service\RequestTime\ExtractorInterface:
+        class: App\Service\RequestTime\DebugExtractor
