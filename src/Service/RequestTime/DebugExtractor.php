@@ -11,11 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 final readonly class DebugExtractor extends Extractor
 {
-    public const string HEADER = 'X-Debug-Request-Time';
-
     public function extract(Request $request): RequestTime
     {
-        $value = $request->headers->get(self::HEADER);
+        $value = $request->headers->get('X-Debug-Request-Time');
         $requestTime = null !== $value ? $this->extractFromDebugHeader($value) : null;
 
         return $requestTime ?? parent::extract($request);
