@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ campaign.title }}{% endblock %}
+
+{% block body %}
+<h1>{{ campaign.title }}</h1>
+現在時刻は <code>{{ request_time|date('Y/m/d H:i:s') }}</code> です。
+
+{% if campaign.isActive(request_time) %}
+  <p>キャンペーン開催中です。</p>
+{% else %}
+  {% if request_time < campaign.beginAt %}
+    <p>このキャンペーンはまだ開始していません。</p>
+  {% else %}
+    <p>このキャンペーンは終了しました。</p>
+  {% endif %}
+{% endif %}
+{% endblock %}
