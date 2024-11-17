@@ -15,14 +15,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class CampaignController extends AbstractController
 {
     #[Route('/{id}', requirements: ['id' => '\d+'])]
-    public function detail(Campaign $campaign, Request $request): Response
+    public function detail(Campaign $campaign, RequestTime $requestTime): Response
     {
-        $requestTime = $request->attributes->get(RequestTime::REQUEST_ATTR_NAME);
-        assert($requestTime instanceof RequestTime);
-
-        if (!$campaign->isActive($requestTime)) {
-            throw $this->createNotFoundException();
-        }
+        // if (!$campaign->isActive($requestTime)) {
+        //     throw $this->createNotFoundException();
+        // }
 
         return $this->render('campaign/detail.html.twig', [
             'campaign' => $campaign,
